@@ -11,7 +11,6 @@
 
 FROM ubuntu:20.10
 ENV LANG C.UTF-8
-COPY nvidia/* /tmp/
 RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     DPKG_INSTALL="dpkg -i --force-all" && \
     PIP_INSTALL="python -m pip --no-cache-dir install --upgrade" && \
@@ -60,8 +59,12 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         zip \
         && \
 
+    wget -nv -O /tmp/nvidia_450.36_cuda11.0_cudnn8.tgz \
+        http://softupdate.paperspace.io/base-container/nvidia_450.36_cuda11.0_cudnn8.tgz && \
+    tar xzf /tmp/nvidia_450.36_cuda11.0_cudnn8.tgz -C /tmp && \
+
     DEBIAN_FRONTEND=noninteractive $DPKG_INSTALL \
-        /tmp/*.deb \
+        /tmp/nvidia/*.deb \
         && \
 
     $GIT_CLONE https://github.com/Kitware/CMake ~/cmake && \
@@ -151,7 +154,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
 # ------------------------------------------------------------------
 
     $PIP_INSTALL \
-        h5py \
+        h5py==2.10.0 \
         keras \
         && \
 
@@ -162,7 +165,6 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     ldconfig && \
     apt-get clean && \
     apt-get autoremove && \
-    rm -rf /tmp/* && \
     rm -rf /root/.cache/* && \
     rm -rf /var/lib/apt/lists/* /tmp/* ~/*
 
