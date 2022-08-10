@@ -1,3 +1,3 @@
-# Run on Gradient base-container
+# Gradient base Docker image
 
-These containers are loosely based on the Deepo images https://github.com/ufoym/deepo. The goal is make a streamlined container with all the capablities to quickly get running on Gradient.
+This repo contains the Dockerfiles used to build the Gradient base Machine Learning Docker image which includes PyTorch, TensorFlow, JAX, Transformers, and other popular ML/AI libraries. The Docker image is hosted on [Dockerhub](https://hub.docker.com/r/paperspace/gradient-base).
