@@ -6,24 +6,24 @@
 # ==================================================================
 # Module list
 # ------------------------------------------------------------------
-# python                3.9.12           (conda)
+# python                3.9.15           (apt)
 # torch                 1.12.1           (pip)
 # torchvision           0.13.1           (pip)
 # torchaudio            0.12.1           (pip)
-# tensorflow            2.10.0           (pip)
-# jax                   0.3.17           (pip)
+# tensorflow            2.9.2            (pip)
+# jax                   0.3.23           (pip)
 # transformers          4.21.3           (pip)
 # datasets              2.4.0            (pip)
 # jupyterlab            3.4.6            (pip)
-# numpy                 1.23.2           (pip)
-# scipy                 1.9.1            (pip)
-# pandas                1.4.4            (pip)
-# cloudpickle           2.1.0            (pip)
+# numpy                 1.23.4           (pip)
+# scipy                 1.9.2            (pip)
+# pandas                1.5.0            (pip)
+# cloudpickle           2.2.0            (pip)
 # scikit-image          0.19.3           (pip)
 # scikit-learn          1.1.2            (pip)
-# matplotlib            3.5.3            (pip)
+# matplotlib            3.6.1            (pip)
 # ipython               8.5.0            (pip)
-# ipykernel             6.15.2           (pip)
+# ipykernel             6.16.0           (pip)
 # ipywidgets            8.0.2            (pip)
 # cython                0.29.32          (pip)
 # tqdm                  4.64.1           (pip)
@@ -31,17 +31,17 @@
 # xgboost               1.6.2            (pip)
 # pillow                9.2.0            (pip)
 # seaborn               0.12.0           (pip)
-# sqlalchemy            1.4.40           (pip)
+# sqlalchemy            1.4.41           (pip)
 # spacy                 3.4.1            (pip)
 # nltk                  3.7              (pip)
-# boto3                 1.24.66          (pip)
-# tabulate              0.8.10           (pip)
+# boto3                 1.24.90          (pip)
+# tabulate              0.9.0            (pip)
 # future                0.18.2           (pip)
 # gradient              2.0.6            (pip)
 # jsonify               0.5              (pip)
 # opencv-python         4.6.0.66         (pip)
-# pyyaml                5.4.1            (pip)
 # sentence-transformers 2.2.2            (pip)
+# wandb                 0.13.4           (pip)
 # nodejs                16.x latest      (apt)
 # default-jre           latest           (apt)
 # default-jdk           latest           (apt)
@@ -277,13 +277,13 @@
 # ------------------------------------------------------------------
 
     RUN echo "export PATH=${PATH}" >> ~/.bashrc  && \
-        echo "export LD_LIBRARY_PATH=/opt/conda/lib" >> ~/.bashrc && \
+        echo "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}" >> ~/.bashrc && \
 
         echo "export PATH=${PATH}" >> ~/.profile && \
-        echo "export LD_LIBRARY_PATH=/opt/conda/lib" >> ~/.profile && \
+        echo "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}" >> ~/.profile && \
 
         echo "export PATH=${PATH}" >> ~/.bash_profile && \
-        echo "export LD_LIBRARY_PATH=/opt/conda/lib" >> ~/.bash_profile
+        echo "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}" >> ~/.bash_profile
 
     EXPOSE 8888 6006
 
