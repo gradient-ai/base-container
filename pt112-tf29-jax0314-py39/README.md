@@ -9,7 +9,7 @@ The goal of this image is to provide common packages for an advanced data scienc
 
 | Category         | Software         | Version                | Install Method | Why / Notes |
 | -------------    | -------------    | -------------          | -------------  | ------------- |
-| GPU              | NVidia Driver    | 510.47.03              | pre-installed  | Enable Nvidia GPUs |
+| GPU              | NVidia Driver    | 510.73.05              | pre-installed  | Enable Nvidia GPUs |
 |                  | CUDA             | 11.6.2                 | Apt            | Nvidia A100 GPUs require CUDA 11+ to work, so 10.x is not suitable |
 |                  | CUDA toolkit     | 11.6.2                 | Apt            | Needed for `nvcc` command for cuDNN |
 |                  | cuDNN            | 8.4.1.*-1+cuda11.6     | Apt            | Nvidia GPU deep learning library |
