@@ -273,20 +273,9 @@
                 
 
 # ==================================================================
-# Config & Startup
+# Startup
 # ------------------------------------------------------------------
-
-    RUN echo "export PATH=${PATH}" >> ~/.bashrc  && \
-        echo "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}" >> ~/.bashrc && \
-
-        echo "export PATH=${PATH}" >> ~/.profile && \
-        echo "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}" >> ~/.profile && \
-
-        echo "export PATH=${PATH}" >> ~/.bash_profile && \
-        echo "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}" >> ~/.bash_profile
 
     EXPOSE 8888 6006
 
     CMD jupyter lab --allow-root --ip=0.0.0.0 --no-browser --ServerApp.trust_xheaders=True --ServerApp.disable_check_xsrf=False --ServerApp.allow_remote_access=True --ServerApp.allow_origin='*' --ServerApp.allow_credentials=True
-
-
