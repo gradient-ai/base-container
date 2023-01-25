@@ -178,6 +178,7 @@
     # Based on https://github.com/google/jax#pip-installation-gpu-cuda
 
     $PIP_INSTALL "jax[cuda11_cudnn82]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html && \
+    $PIP_INSTALL flax==0.6.3 && \
 
 
 # ==================================================================
@@ -240,7 +241,9 @@
         opencv-python==4.6.0.66 \
         sentence-transformers==2.2.2 \
         wandb==0.13.4 \
-        awscli==1.25.91
+        awscli==1.25.91 \
+        jupyterlab-snippets==0.4.1 \
+        tornado==6.1
 
 
 # ==================================================================
