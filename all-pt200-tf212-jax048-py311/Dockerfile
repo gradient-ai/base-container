@@ -225,7 +225,7 @@
         pandas==1.5.0 \
         cloudpickle==2.2.0 \
         scikit-image==0.19.3 \
-        scikit-learn==1.1.2 \
+        scikit-learn \
         matplotlib==3.6.1 \
         ipython==8.5.0 \
         ipykernel==6.16.0 \
