@@ -144,11 +144,14 @@
     # Based on https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#package-manager-ubuntu-install
 
     # Installing CUDA Toolkit
-    RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.debsudo && \
-        dpkg -i cuda-keyring_1.0-1_all.debsudo && \
-        apt-get updatesudo && \
-        apt-get -y install cuda && \
-        rm cuda-keyring_1.0-1_all.debsudo
+
+    RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pinsudo \
+        mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600 \
+        wget https://developer.download.nvidia.com/compute/cuda/12.1.0/local_installers/cuda-repo-ubuntu2004-12-1-local_12.1.0-530.30.02-1_amd64.debsudo \
+        dpkg -i cuda-repo-ubuntu2004-12-1-local_12.1.0-530.30.02-1_amd64.deb \
+        cp /var/cuda-repo-ubuntu2004-12-1-local/cuda-*-keyring.gpg /usr/share/keyrings/ \
+        apt-get update
+        apt-get -y install cuda
     
     ENV PATH=$PATH:/usr/local/cuda-12.1/bin
     ENV LD_LIBRARY_PATH=/usr/local/cuda-12.1/lib64
