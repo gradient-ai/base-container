@@ -254,7 +254,7 @@
 # ------------------------------------------------------------------
     RUN pip install -U git+https://github.com/huggingface/transformers
 
-    RUN pip install --pre scikit-image
+    RUN pip install --pre scikit-learn
 # ==================================================================
 # Installing JRE and JDK
 # ------------------------------------------------------------------
