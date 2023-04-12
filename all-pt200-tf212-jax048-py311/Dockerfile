@@ -150,7 +150,7 @@
         wget https://developer.download.nvidia.com/compute/cuda/12.1.0/local_installers/cuda-repo-ubuntu2004-12-1-local_12.1.0-530.30.02-1_amd64.debsudo \
         dpkg -i cuda-repo-ubuntu2004-12-1-local_12.1.0-530.30.02-1_amd64.deb \
         cp /var/cuda-repo-ubuntu2004-12-1-local/cuda-*-keyring.gpg /usr/share/keyrings/ \
-        apt-get update
+        apt-get update \
         apt-get -y install cuda
     
     ENV PATH=$PATH:/usr/local/cuda-12.1/bin
