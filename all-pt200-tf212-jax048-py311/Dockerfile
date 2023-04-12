@@ -224,8 +224,7 @@
         scipy==1.9.2 \
         pandas==1.5.0 \
         cloudpickle==2.2.0 \
-        scikit-image==0.19.3 \
-        scikit-learn \
+        scikit-image \
         matplotlib==3.6.1 \
         ipython==8.5.0 \
         ipykernel==6.16.0 \
@@ -251,9 +250,11 @@
         jupyterlab-snippets==0.4.1 \
         tornado==6.1
 # ==================================================================
-# Installing transformers (fixed)
+# Installing transformers & scikit image (fixed)
 # ------------------------------------------------------------------
     RUN pip install -U git+https://github.com/huggingface/transformers
+
+    RUN pip install --pre scikit-image
 # ==================================================================
 # Installing JRE and JDK
 # ------------------------------------------------------------------
