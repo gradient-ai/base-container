@@ -144,15 +144,10 @@
     # Based on https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#package-manager-ubuntu-install
 
     # Installing CUDA Toolkit
+    RUN wget https://developer.download.nvidia.com/compute/cuda/12.1.1/local_installers/cuda_12.1.1_530.30.02_linux.run && \
+        bash cuda_12.1.1_530.30.02_linux.run --silent --toolkit && \
+        rm cuda_12.1.1_530.30.02_linux.run
 
-    RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin && \
-        mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600 && \
-        wget https://developer.download.nvidia.com/compute/cuda/12.1.0/local_installers/cuda-repo-ubuntu2004-12-1-local_12.1.0-530.30.02-1_amd64.deb && \
-        dpkg -i cuda-repo-ubuntu2004-12-1-local_12.1.0-530.30.02-1_amd64.deb && \
-        cp /var/cuda-repo-ubuntu2004-12-1-local/cuda-*-keyring.gpg /usr/share/keyrings/ && \
-        apt-get update && \
-        apt-get -y install cuda
-    
     ENV PATH=$PATH:/usr/local/cuda-12.1/bin
     ENV LD_LIBRARY_PATH=/usr/local/cuda-12.1/lib64
 
@@ -175,7 +170,7 @@
     # Based on https://pytorch.org/get-started/locally/
 
     RUN $PIP_INSTALL torch torchvision torchaudio torchtext && \
-        
+
 
 # ==================================================================
 # JAX
@@ -199,7 +194,7 @@
 # ==================================================================
 # Hugging Face
 # ------------------------------------------------------------------
-    
+
     # Based on https://huggingface.co/docs/transformers/installation
     # Based on https://huggingface.co/docs/datasets/installation
 
@@ -282,7 +277,7 @@
         $APT_INSTALL nodejs  && \
         $PIP_INSTALL jupyter_contrib_nbextensions jupyterlab-git && \
         jupyter contrib nbextension install --user
-                
+
 
 # ==================================================================
 # Startup
