@@ -11,8 +11,8 @@ The goal of this image is to provide common packages for an advanced data scienc
 | -------------    | -------------    | -------------          | -------------  | ------------- |
 | GPU              | NVidia Driver    | 510.73.05              | pre-installed  | Enable Nvidia GPUs |
 |                  | CUDA             | 12.2.0                 | Apt            | Nvidia A100 GPUs require CUDA 11+ to work, so 10.x is not suitable |
-|                  | CUDA toolkit     | 12.2.0                 | Apt            | Needed for `nvcc` command for cuDNN |
-|                  | cuDNN            | 8.9.7.29-1+cuda12.2    | Apt            | Nvidia GPU deep learning library |
+|                  | CUDA toolkit     | 12.1.1                 | Apt            | Needed for `nvcc` command for cuDNN |
+|                  | cuDNN            | 8.9.3.28-1+cuda12.1    | Apt            | Nvidia GPU deep learning library |
 | Python           | Python           | 3.11.6                 | Apt            | Most widely used programming language for data science |
 |                  | pip3             | 23.3.1                 | Apt            | Enable easy installation of 1000s of other data science, etc., packages. |
 |                  | NumPy            | 1.26.3                 | pip3           | Handle arrays, matrices, etc., in Python |
