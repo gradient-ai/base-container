@@ -162,8 +162,8 @@
         wget https://developer.download.nvidia.com/compute/cuda/12.0.0/local_installers/cuda-repo-ubuntu2204-12-0-local_12.0.0-525.60.13-1_amd64.deb && \
         dpkg -i cuda-repo-ubuntu2204-12-0-local_12.0.0-525.60.13-1_amd64.deb && \
         cp /var/cuda-repo-ubuntu2204-12-0-local/cuda-*-keyring.gpg /usr/share/keyrings/ && \
-        apt-get update
-    RUN $APT_INSTALL cuda && \  
+        apt-get update && \
+        $APT_INSTALL cuda && \  
         rm cuda-repo-ubuntu2204-12-0-local_12.0.0-525.60.13-1_amd64.deb
 
     # Installing CUDNN
@@ -176,69 +176,6 @@
 
     ENV PATH=$PATH:/usr/local/cuda/bin
     ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-
-# ==================================================================
-# Installing CUDA packages (CUDA Toolkit 12.1.0 & CUDNN TBD)
-# ------------------------------------------------------------------
-
-    # RUN curl -fsSLO https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb && \
-    # dpkg -i cuda-keyring_1.0-1_all.deb && \
-    # apt-get update
-
-    # Installing CUDA Toolkit
-    # RUN $APT_INSTALL nvidia-driver-535=535.129.03-0ubuntu1 cuda=12.2.0-1
-        # cuda=12.1.1-1 \
-        # cuda-toolkit-12-config-common=12.1.105-1 \
-        # cuda-toolkit-config-common=12.1.105-1 \
-        # cuda-drivers=535.129.03-1 
-        # libcudnn8=8.8.1.3-1+cuda12.0 \
-        # libcudnn8-dev=8.8.1.3-1+cuda12.0
-    # ENV PATH=$PATH:/usr/local/cuda/bin
-    # ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-    # ENV CUDA_HOME=/usr/local/cuda
-
-    # RUN wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_520.61.05_linux.run && \
-    #     bash cuda_11.8.0_520.61.05_linux.run --silent --toolkit && \
-    #     rm cuda_11.8.0_520.61.05_linux.run
-    # ENV PATH=$PATH:/usr/local/cuda-11.8/bin
-    # ENV LD_LIBRARY_PATH=/usr/local/cuda-11.8/lib64
-
-    # # Installing CUDNN
-    # RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin && \
-    #     mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600 && \
-    #     apt-get install dirmngr -y && \
-    #     apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub && \
-    #     add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /" && \
-    #     apt-get update && \
-    #     apt-get install libcudnn8=8.6.0.*-1+cuda11.8 -y && \
-    #     apt-get install libcudnn8-dev=8.6.0.*-1+cuda11.8 -y && \
-    #     rm /etc/apt/preferences.d/cuda-repository-pin-600
-
-# ==================================================================
-# (OLDER IGNORE) Installing CUDA packages (CUDA Toolkit 11.6.2 & CUDNN 8.4.1)
-# ------------------------------------------------------------------
-
-    # Based on https://developer.nvidia.com/cuda-toolkit-archive
-    # Based on https://developer.nvidia.com/rdp/cudnn-archive
-    # Based on https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#package-manager-ubuntu-install
-
-    # Installing CUDA Toolkit
-    # RUN wget https://developer.download.nvidia.com/compute/cuda/11.6.2/local_installers/cuda_11.6.2_510.47.03_linux.run && \
-    #     bash cuda_11.6.2_510.47.03_linux.run --silent --toolkit && \
-    #     rm cuda_11.6.2_510.47.03_linux.run
-    # ENV PATH=$PATH:/usr/local/cuda-11.6/bin
-    # ENV LD_LIBRARY_PATH=/usr/local/cuda-11.6/lib64
-
-    # # Installing CUDNN
-    # RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin && \
-    #     mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600 && \
-    #     apt-get install dirmngr -y && \
-    #     apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub && \
-    #     add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /" && \
-    #     apt-get update && \
-    #     apt-get install libcudnn8=8.4.1.*-1+cuda11.6 -y && \
-    #     apt-get install libcudnn8-dev=8.4.1.*-1+cuda11.6 -y && \
-    #     rm /etc/apt/preferences.d/cuda-repository-pin-600
 
 
 # ==================================================================
